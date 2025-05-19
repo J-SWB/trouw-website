@@ -49,6 +49,7 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
+    /* Aftelklok */
     .countdown {
       max-width: 1000px;
       margin: 30px auto;
@@ -69,13 +70,13 @@
 
     .countdown div {
       background-color: var(--wit);
-      padding: 15px;
+      padding: 12px;
       border-radius: 10px;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s;
-      flex: 1 1 100px;
-      max-width: 150px;
-      min-width: 90px;
+      flex: 1 1 90px;
+      max-width: 140px;
+      min-width: 80px;
     }
 
     .countdown div:hover {
@@ -200,28 +201,16 @@
       }
 
       .countdown {
-        max-width: 100%;
-        margin: 15px auto;
-        padding: 8px 10px;
-        font-size: 1em;
-        gap: 6px;
-        background-color: rgba(255, 255, 255, 0.85);
-        box-shadow: none;
+        font-size: 0.9em;
+        padding: 12px;
+        gap: 8px;
       }
 
       .countdown div {
-        padding: 6px;
-        flex: 1 1 60px;
-        max-width: 80px;
-        min-width: 60px;
-        font-weight: 500;
-        background-color: transparent;
-        box-shadow: none;
-        border-radius: 0;
-      }
-
-      .countdown div:hover {
-        transform: none;
+        padding: 6px 4px;
+        min-width: 70px;
+        max-width: 90px;
+        font-weight: 600;
       }
     }
   </style>
@@ -241,7 +230,7 @@
 
   <section class="contact">
     <h2>Bevestig je komst</h2>
-    <form action="mailto:jani.swimberghe@gmail.com" method="post" enctype="text/plain">
+    <form action="https://formspree.io/f/mvgayrpl" method="POST">
       <label for="name">Naam / Namen:</label>
       <input type="text" id="name" name="name" required />
 
@@ -249,13 +238,10 @@
       <input type="email" id="email" name="email" required />
 
       <label for="message">Opmerkingen (zoals allergieën of vegetarisch eten):</label>
-      <textarea
-        id="message"
-        name="message"
-        rows="4"
-        placeholder="Laat hier weten of je vegetarisch eet, allergieën hebt of iets anders wil delen."
-      ></textarea>
+      <textarea id="message" name="message" rows="4" placeholder="Laat hier weten of je vegetarisch eet, allergieën hebt of iets anders wil delen."></textarea>
 
+      <input type="hidden" name="_subject" value="Nieuwe RSVP via huwelijkswebsite!">
+      <input type="hidden" name="_captcha" value="false">
       <button type="submit">Bevestigen</button>
     </form>
   </section>
@@ -275,12 +261,9 @@
 
   <section class="media">
     <h2>Foto's & Gastenboek</h2>
-    <p>Scan de QR-code om foto’s van de dag te uploaden of iets liefs te schrijven in ons online gastenboek of open de volgende link: https://my.wedibox.com/recJwfNIEiNYL4e0</p>
+    <p>Scan de QR-code om foto’s te uploaden of iets liefs te schrijven in ons gastenboek: <br><a href="https://my.wedibox.com/recJwfNIEiNYL4e0">https://my.wedibox.com/recJwfNIEiNYL4e0</a></p>
     <div class="qr-centered">
-      <img
-        src="qr-code.png"
-        alt="QR code voor foto's en gastenboek"
-      />
+      <img src="qr-code.png" alt="QR code voor foto's en gastenboek" />
     </div>
   </section>
 
@@ -304,14 +287,6 @@
       const eventDate = new Date('2026-05-23T00:00:00').getTime();
       const now = new Date().getTime();
       const timeLeft = eventDate - now;
-
-      if (timeLeft < 0) {
-        document.getElementById('days').textContent = 0;
-        document.getElementById('hours').textContent = 0;
-        document.getElementById('minutes').textContent = 0;
-        document.getElementById('seconds').textContent = 0;
-        return;
-      }
 
       const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
       const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
