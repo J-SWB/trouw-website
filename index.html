@@ -49,13 +49,13 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
-    /* Aftelklok - desktop/laptop stijl */
+    /* Aftelklok */
     .countdown {
       max-width: 1000px;
       margin: 30px auto;
       display: flex;
       justify-content: center;
-      gap: 20px;
+      gap: 15px;
       font-size: 1.5em;
       font-weight: bold;
       text-align: center;
@@ -65,16 +65,18 @@
       border-radius: 10px;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s;
+      flex-wrap: wrap; /* Zorgt dat het kan afbreken */
     }
 
     .countdown div {
       background-color: var(--wit);
-      padding: 20px;
+      padding: 15px;
       border-radius: 10px;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s;
-      flex: 1;
-      min-width: 70px;
+      flex: 1 1 100px;
+      max-width: 150px;
+      min-width: 90px;
     }
 
     .countdown div:hover {
@@ -124,6 +126,11 @@
       flex-direction: column;
     }
 
+    label {
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+
     input,
     textarea {
       padding: 10px;
@@ -131,6 +138,7 @@
       border: 1px solid #ccc;
       border-radius: 4px;
       font-size: 1em;
+      resize: vertical;
     }
 
     button {
@@ -142,6 +150,7 @@
       border-radius: 5px;
       cursor: pointer;
       transition: background-color 0.3s ease, transform 0.3s;
+      align-self: start;
     }
 
     button:hover {
@@ -186,30 +195,25 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
-    /* Mobiele aanpassingen */
     @media (max-width: 600px) {
       header h1 {
         font-size: 2em;
       }
 
-      /* Countdown compacter op mobiel, items in één rij */
       .countdown {
-        max-width: 1000px;
-        margin: 30px auto;
+        max-width: 100%;
+        margin: 20px auto;
         padding: 10px 15px;
-        font-size: 1em;
-        gap: 10px;
+        font-size: 1.1em;
+        gap: 8px;
       }
 
       .countdown div {
-        padding: 10px 8px;
-        flex: unset;
-        min-width: auto;
-        background-color: var(--wit);
-        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-        border-radius: 8px;
+        padding: 8px 6px;
+        flex: 1 1 70px;
+        max-width: 90px;
+        min-width: 70px;
         font-weight: 600;
-        flex-grow: 1;
       }
     }
   </style>
@@ -217,26 +221,14 @@
 <body>
   <header>
     <h1>Wij gaan trouwen!</h1>
-    <img
-      src="Foto1.jpg"
-      alt="Banner"
-      class="banner"
-    />
+    <img src="Foto1.jpg" alt="Banner" class="banner" />
   </header>
 
   <section class="countdown" id="countdown">
-    <div>
-      <span id="days">0</span><br />DAGEN
-    </div>
-    <div>
-      <span id="hours">0</span><br />UREN
-    </div>
-    <div>
-      <span id="minutes">0</span><br />MINUTEN
-    </div>
-    <div>
-      <span id="seconds">0</span><br />SECONDEN
-    </div>
+    <div><span id="days">0</span><br />DAGEN</div>
+    <div><span id="hours">0</span><br />UREN</div>
+    <div><span id="minutes">0</span><br />MINUTEN</div>
+    <div><span id="seconds">0</span><br />SECONDEN</div>
   </section>
 
   <section class="contact">
@@ -275,10 +267,7 @@
 
   <section class="media">
     <h2>Foto's & Gastenboek</h2>
-    <p>
-      Scan de QR-code om foto’s van de dag te uploaden of iets liefs te schrijven in
-      ons online gastenboek.
-    </p>
+    <p>Scan de QR-code om foto’s van de dag te uploaden of iets liefs te schrijven in ons online gastenboek.</p>
     <div class="qr-centered">
       <img
         src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https://placeholder-fotosite-en-gastenboek.com"
@@ -308,8 +297,19 @@
       const now = new Date().getTime();
       const timeLeft = eventDate - now;
 
+      if (timeLeft < 0) {
+        // Event is passed
+        document.getElementById('days').textContent = 0;
+        document.getElementById('hours').textContent = 0;
+        document.getElementById('minutes').textContent = 0;
+        document.getElementById('seconds').textContent = 0;
+        return;
+      }
+
       const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const hours = Math.floor(
+        (timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
       const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
