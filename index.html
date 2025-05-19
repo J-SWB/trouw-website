@@ -195,6 +195,7 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
+    /* Subtieler op gsm */
     @media (max-width: 600px) {
       header h1 {
         font-size: 2em;
@@ -206,6 +207,9 @@
         padding: 10px 15px;
         font-size: 1.1em;
         gap: 8px;
+        background-color: rgba(255, 255, 255, 0.7); /* minder fel */
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05); /* subtielere schaduw */
+        color: var(--accent); /* iets minder opvallende kleur */
       }
 
       .countdown div {
@@ -214,6 +218,13 @@
         max-width: 90px;
         min-width: 70px;
         font-weight: 600;
+        background-color: rgba(255, 255, 255, 0.85); /* subtielere achtergrond */
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+        border-radius: 8px;
+      }
+
+      .countdown div:hover {
+        transform: none; /* geen hover effect op mobiel */
       }
     }
   </style>
@@ -267,10 +278,10 @@
 
   <section class="media">
     <h2>Foto's & Gastenboek</h2>
-    <p>Scan de QR-code om foto’s van de dag te uploaden of iets liefs te schrijven in ons online gastenboek.</p>
+    <p>Scan de QR-code om foto’s van de dag te uploaden of iets liefs te schrijven in ons online gastenboek of open de volgende link: https://my.wedibox.com/recJwfNIEiNYL4e0</p>
     <div class="qr-centered">
       <img
-        src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https://placeholder-fotosite-en-gastenboek.com"
+        src="qr-code.png"
         alt="QR code voor foto's en gastenboek"
       />
     </div>
