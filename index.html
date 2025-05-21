@@ -25,6 +25,10 @@
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: var(--beige);
+      background-image: url('Bloemen2.jpg');
+      background-size: cover;        /* Zorgt dat het de hele pagina bedekt */
+  background-position: center;   /* Centreert de afbeelding */
+  background-repeat: no-repeat;  /* Geen herhaling van de afbeelding */
       color: var(--tekst);
       line-height: 1.6;
       min-height: 100vh;
@@ -34,7 +38,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: var(--wit);
+      background-color: rgba(255, 255, 255, 0.7);
       display: flex;
       align-items: center;
       padding: 12px 40px;
@@ -55,7 +59,7 @@
       border-radius: 6px;
       padding: 5px 8px;
       box-shadow: 0 1px 5px rgba(0,0,0,0.1);
-      margin-right: auto;
+      margin-left: auto;
       flex-shrink: 0;
     }
 
@@ -122,7 +126,7 @@
     header {
       text-align: center;
       padding: 15px 20px;
-      background: var(--wit);
+      background-color: rgba(255, 255, 255, 0.7);
       box-shadow: 0 2px 12px rgba(0,0,0,0.05);
       border-radius: 0 0 15px 15px;
       margin: 0 auto 40px;
@@ -188,7 +192,7 @@
     section {
       max-width: 900px;
       margin: 0 auto 50px;
-      background: var(--wit);
+      background-color: rgba(255, 255, 255, 0.7);
       padding: 30px;
       border-left: 12px solid var(--terracotta);
       border-radius: 12px;
@@ -415,19 +419,23 @@
           Kom je ook? Laat het ons weten door het formulier in te vullen. Ook als je er niet bij kunt zijn, vernemen we dat graag. Hopelijk tot snel!
         </p>
       </div>
-      <form>
+      <form action="https://formspree.io/f/mvgayrpl" method="POST">
         <label for="naam">Naam/Namen</label>
         <input type="text" id="naam" name="naam" placeholder="Naam/Namen" required />
+      
         <label for="personen">Aantal personen</label>
         <select id="personen" name="personen" required>
           <option value="" disabled selected>Maak een keuze</option>
           <option value="1">1 persoon</option>
           <option value="2">2 personen</option>
         </select>
+      
         <label for="email">E-mail</label>
         <input type="email" id="email" name="email" placeholder="Jouw e-mail" required />
+      
         <label for="bericht">Boodschap (optioneel)</label>
         <textarea id="bericht" name="bericht" rows="4" placeholder="Laat hier weten of je vegetarisch eet, allergieën hebt of iets anders wil delen."></textarea>
+      
         <button type="submit">Bevestigen</button>
       </form>
     </section>
@@ -435,20 +443,20 @@
     <section id="planning" aria-labelledby="planning-title">
       <h2 id="planning-title">Dagplanning</h2>
       <ul>
-        <li>17u00 - Ceremonie   <img src="ring.png" alt="ring" /></li>
-        <li>17u30 - Receptie   <img src="Cava.png" alt="receptie" /></li>
-        <li>18u45 - Aan tafel   <img src="Tafel.png" alt="tafel" /></li>
-        <li>19u00 - Start All You Can Eat Streetfood   <img src="Taco.png" alt="streetfood" /></li>
-        <li>21u00 - Start dessertbuffet   <img src="Taart.png" alt="taart" /></li>
-        <li>22u30 - Openingsdans   <img src="Man.png" alt="man" /> <img src="Vrouw.png" alt="vrouw" /></li>
-        <li>22u35 - Tijd om de beentjes los te gooien!   <img src="Disco.png" alt="discobal" /></li>
+        <li>17u00 - Ceremonie <img src=ring.png" alt="ring" /></li>
+        <li>17u30 - Receptie <img src="Cava.png" alt="receptie" /></li>
+        <li>18u45 - Aan tafel <img src="Tafel.png" alt="tafel" /></li>
+        <li>19u00 - Start All You Can Eat Streetfood <img src="Taco.png" alt="streetfood" /></li>
+        <li>21u00 - Start dessertbuffet <img src="Taart.png" alt="taart" /></li>
+        <li>22u30 - Openingsdans <img src="Vrouw.png" alt="vrouw" /> <img src="Man.png" alt="man" /> </li>
+        <li>22u35 - Dansfeest <img src="Disco.png" alt="discobal" /></li>
       </ul>
     </section>
     
     <section id="fotos" aria-labelledby="fotos-title">
       <h2 id="fotos-title">Fotogalerij</h2>
       <p>
-        Scan de QR-code om foto's te uploaden van de dag van ons huwelijk of de dagen erna.
+        Scan de QR-code en deel je foto's van onze bruiloft met ons! Dit kan op de dag zelf of in de dagen daarna.
       </p>
       <div class="qr-centered">
         <img src="qr-code.png" alt="QR-code om foto's te uploaden" />
