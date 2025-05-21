@@ -43,14 +43,18 @@ nav a {
 
 @media (max-width: 420px) {
   nav {
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 6px;
     padding: 6px 8px;
   }
 
   nav a {
-    width: 100%;
-    font-size: 0.85rem;
+    flex: 1 0 auto;
+    font-size: 0.8rem;
+    padding: 5px 8px;
+    min-width: max-content;
   }
 }
 
