@@ -43,23 +43,23 @@ nav a {
 
 @media (max-width: 420px) {
   nav {
-    flex-direction: row;
+    flex-direction: row; /* belangrijk */
     flex-wrap: wrap;
-    justify-content: center;
     gap: 6px;
     padding: 6px 8px;
+    justify-content: center;
   }
 
   nav a {
     flex: 1 0 auto;
     font-size: 0.8rem;
+    white-space: nowrap;
     padding: 5px 8px;
     min-width: max-content;
   }
 }
-
-
 }
+
     :root {
       --terracotta: #b76e60;
       --beige: #f5f0e6;
