@@ -20,11 +20,41 @@
     padding: 6px 0;
   }
   nav {
-    width: 100%;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+nav a {
+  flex: 1 0 auto;
+  padding: 6px 10px;
+  white-space: nowrap;
+  text-align: center;
+  border: 1px solid var(--terracotta);
+  font-size: 0.9rem;
+  min-width: max-content;
+}
+
+@media (max-width: 420px) {
+  nav {
+    flex-direction: column;
+    gap: 6px;
+    padding: 6px 8px;
   }
+
+  nav a {
+    width: 100%;
+    font-size: 0.85rem;
+  }
+}
+
+
 }
     :root {
       --terracotta: #b76e60;
