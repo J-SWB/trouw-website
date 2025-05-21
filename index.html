@@ -6,6 +6,26 @@
   <title>Jani & Zalissa – Onze Bruiloft</title>
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Great+Vibes&display=swap" rel="stylesheet" />
   <style>
+    @media (max-width: 720px) {
+  .topbar {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  .countdown {
+    width: 100%;
+    justify-content: space-evenly;
+    margin: 0 auto;
+    text-align: center;
+    padding: 6px 0;
+  }
+  nav {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+}
     :root {
       --terracotta: #b76e60;
       --beige: #f5f0e6;
@@ -44,6 +64,20 @@
       position: sticky;
       border-bottom: 2px solid var(--terracotta);
     }
+    select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 18px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  background-color: white;
+}
+select:focus {
+  border-color: var(--terracotta);
+  outline: none;
+}
 
     /* Kleine countdown, uiterst links */
     .countdown {
@@ -419,7 +453,13 @@
       </div>
       <form>
         <label for="naam">Naam/Namen</label>
-        <input type="text" id="naam" name="naam" placeholder="Jouw naam en eventueel de naam van je partner, indien aanwezig" required />
+        <input type="text" id="naam" name="naam" placeholder="Naam/Namen" required />
+        <label for="personen">Aantal personen</label>
+<select id="personen" name="personen" required>
+  <option value="" disabled selected>Maak een keuze</option>
+  <option value="1">1 persoon</option>
+  <option value="2">2 personen</option>
+</select>
         <label for="email">E-mail</label>
         <input type="email" id="email" name="email" placeholder="Jouw e-mail" required />
         <label for="bericht">Boodschap (optioneel)</label>
