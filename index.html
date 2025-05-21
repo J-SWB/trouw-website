@@ -296,6 +296,13 @@
       transform: scale(1.1);
     }
 
+    .nav-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 0 12px;
+  box-sizing: border-box;
+}
     /* ✅ Responsive Navigation Fix */
     @media (max-width: 720px) {
       .topbar {
@@ -312,14 +319,17 @@
       }
 
       nav {
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        justify-content: flex-start;
-        gap: 10px;
-        padding: 6px 12px;
-        font-size: 0.85rem;
-        scrollbar-width: none;
-      }
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  justify-content: flex-start;
+  gap: 12px;
+  padding: 6px 0;
+  font-size: 0.85rem;
+  border: none;
+  box-shadow: none;
+  scrollbar-width: none;
+}
 
       nav::-webkit-scrollbar {
         display: none;
@@ -364,17 +374,19 @@
       <div><span id="seconds">0</span>SECONDEN</div>
     </div>
 
-    <nav>
-      <a href="#rsvp">Uitnodiging</a>
-      <a href="#planning">Dagplanning</a>
-      <a href="#fotos">Fotogalerij</a>
-      <a href="#locatie">Locatie</a>
-    </nav>
+    <div class="nav-wrapper">
+      <nav>
+        <a href="#rsvp">Uitnodiging</a>
+        <a href="#planning">Dagplanning</a>
+        <a href="#fotos">Fotogalerij</a>
+        <a href="#locatie">Locatie</a>
+      </nav>
+    </div>
   </div>
 
   <header>
     <div class="trouwen-text">Wij gaan trouwen</div>
-    <img src="c:\Users\Omen\Documents\Foto1.jpg" alt="Banner foto bruiloft" class="banner" />
+    <img src="Foto1.jpg" alt="Banner foto bruiloft" class="banner" />
     <h1>Jani & Zalissa</h1>
   </header>
 
