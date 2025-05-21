@@ -31,33 +31,33 @@
     }
 
     .topbar {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: var(--wit);
-  display: flex;
-  align-items: center;
-  padding: 12px 40px;
-  border-bottom: 2px solid var(--terracotta);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  position: sticky;
-}
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--wit);
+      display: flex;
+      align-items: center;
+      padding: 12px 40px;
+      border-bottom: 2px solid var(--terracotta);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      flex-wrap: wrap;
+    }
 
-.countdown {
-  display: flex;
-  gap: 10px;
-  font-weight: 600;
-  font-size: 0.75rem;
-  color: var(--terracotta);
-  user-select: none;
-  min-width: 160px;
-  background: var(--wit);
-  border-radius: 6px;
-  padding: 5px 8px;
-  box-shadow: 0 1px 5px rgba(0,0,0,0.1);
-  margin-right: auto;
-  flex-shrink: 0;
-}
+    .countdown {
+      display: flex;
+      gap: 10px;
+      font-weight: 600;
+      font-size: 0.75rem;
+      color: var(--terracotta);
+      user-select: none;
+      min-width: 160px;
+      background: var(--wit);
+      border-radius: 6px;
+      padding: 5px 8px;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+      margin-right: auto;
+      flex-shrink: 0;
+    }
 
     .countdown div {
       text-align: center;
@@ -72,10 +72,10 @@
     }
 
     .nav-wrapper {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
 
     nav {
       display: flex;
@@ -271,6 +271,7 @@
       border-radius: 8px;
       font-weight: 700;
       cursor: pointer;
+      transition: background-color 0.3s ease;
     }
 
     button:hover {
@@ -362,15 +363,15 @@
 <body>
 
   <div class="topbar" role="banner">
-    <div class="countdown">
-      <div><span id="days">0</span>DAGEN</div>
-      <div><span id="hours">0</span>UREN</div>
-      <div><span id="minutes">0</span>MINUTEN</div>
-      <div><span id="seconds">0</span>SECONDEN</div>
+    <div class="countdown" aria-live="polite" aria-atomic="true" aria-label="Tijd tot onze bruiloft">
+      <div><span id="days">0</span> DAGEN</div>
+      <div><span id="hours">0</span> UREN</div>
+      <div><span id="minutes">0</span> MINUTEN</div>
+      <div><span id="seconds">0</span> SECONDEN</div>
     </div>
 
     <div class="nav-wrapper">
-      <nav>
+      <nav role="navigation" aria-label="Hoofdnavigatie">
         <a href="#rsvp">Uitnodiging</a>
         <a href="#planning">Dagplanning</a>
         <a href="#fotos">Fotogalerij</a>
@@ -380,13 +381,13 @@
   </div>
 
   <header>
-    <div class="trouwen-text">Wij gaan trouwen</div>
-    <img src="Foto1.jpg" alt="Banner foto bruiloft" class="banner" />
+    <div class="trouwen-text" aria-label="Tekst: Wij gaan trouwen">Wij gaan trouwen</div>
+    <!-- Let op: pas het pad aan naar je eigen afbeelding, gebruik relatieve of online URL's -->
+    <img src="Foto1.jpg" alt="Foto van Jani en Zalissa ter gelegenheid van hun bruiloft" class="banner" />
     <h1>Jani & Zalissa</h1>
   </header>
 
   <main>
-
     <section id="rsvp" aria-labelledby="rsvp-title">
       <h2 id="rsvp-title">Uitnodiging</h2>
       <div class="intro-rsvp">
@@ -394,18 +395,18 @@
           Het gaat dan toch eindelijk gebeuren, wij gaan trouwen! En deze dag vieren we natuurlijk niet zonder jou! Daarom willen we je van harte uitnodigen voor onze bruiloft!
         </p>
         <p>
-          Kom je ook? Laat het ons weten door het formulier in te vullen. Ook als je er niet bij kunt zijn, vernemen we dat graag. Hopelijk tot snel!.
+          Kom je ook? Laat het ons weten door het formulier in te vullen. Ook als je er niet bij kunt zijn, vernemen we dat graag. Hopelijk tot snel!
         </p>
       </div>
       <form>
         <label for="naam">Naam/Namen</label>
         <input type="text" id="naam" name="naam" placeholder="Naam/Namen" required />
         <label for="personen">Aantal personen</label>
-<select id="personen" name="personen" required>
-  <option value="" disabled selected>Maak een keuze</option>
-  <option value="1">1 persoon</option>
-  <option value="2">2 personen</option>
-</select>
+        <select id="personen" name="personen" required>
+          <option value="" disabled selected>Maak een keuze</option>
+          <option value="1">1 persoon</option>
+          <option value="2">2 personen</option>
+        </select>
         <label for="email">E-mail</label>
         <input type="email" id="email" name="email" placeholder="Jouw e-mail" required />
         <label for="bericht">Boodschap (optioneel)</label>
@@ -413,6 +414,7 @@
         <button type="submit">Bevestigen</button>
       </form>
     </section>
+
     <section id="planning" aria-labelledby="planning-title">
       <h2 id="planning-title">Dagplanning</h2>
       <ul>
@@ -432,7 +434,7 @@
         Scan de QR-code om foto's te uploaden van de dag van ons huwelijk of de dagen erna.
       </p>
       <div class="qr-centered">
-        <img src="qr-code.png" alt="QR code voor foto's" />
+        <img src="qr-code.png" alt="QR-code om foto's te uploaden" />
         <p style="text-align: center;">
           <a href="https://my.wedibox.com/recJwfNIEiNYL4e0" target="_blank" rel="noopener noreferrer">
             https://my.wedibox.com/recJwfNIEiNYL4e0
@@ -440,7 +442,7 @@
         </p>
       </div>
     </section>
-    
+
     <section id="locatie" aria-labelledby="locatie-title">
       <h2 id="locatie-title">Locatie</h2>
       <p>
@@ -461,41 +463,47 @@
   </main>
 
   <script>
-    const countdownElements = {
+    // Countdown timer functie
+    const countdownElement = {
       days: document.getElementById('days'),
       hours: document.getElementById('hours'),
       minutes: document.getElementById('minutes'),
-      seconds: document.getElementById('seconds'),
+      seconds: document.getElementById('seconds')
     };
 
-    // Let op: maanden in JavaScript beginnen bij 0, dus mei = 4
-    const weddingDate = new Date(2026, 4, 23, 17, 0, 0);
+    // Datum en tijd van de bruiloft: 15 september 2023, 17:00 uur (pas aan indien nodig)
+    const weddingDate = new Date('2026-05-23T17:00:00+02:00');
 
     function updateCountdown() {
       const now = new Date();
-      const diff = weddingDate - now;
+      let diff = weddingDate - now;
 
-      if (diff <= 0) {
-        countdownElements.days.textContent = 0;
-        countdownElements.hours.textContent = 0;
-        countdownElements.minutes.textContent = 0;
-        countdownElements.seconds.textContent = 0;
+      if (diff < 0) {
+        // Bruiloft is voorbij
+        countdownElement.days.textContent = 0;
+        countdownElement.hours.textContent = 0;
+        countdownElement.minutes.textContent = 0;
+        countdownElement.seconds.textContent = 0;
         return;
       }
 
       const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((diff / (1000 * 60)) % 60);
-      const seconds = Math.floor((diff / 1000) % 60);
+      diff -= days * (1000 * 60 * 60 * 24);
+      const hours = Math.floor(diff / (1000 * 60 * 60));
+      diff -= hours * (1000 * 60 * 60);
+      const minutes = Math.floor(diff / (1000 * 60));
+      diff -= minutes * (1000 * 60);
+      const seconds = Math.floor(diff / 1000);
 
-      countdownElements.days.textContent = days;
-      countdownElements.hours.textContent = hours;
-      countdownElements.minutes.textContent = minutes;
-      countdownElements.seconds.textContent = seconds;
+      countdownElement.days.textContent = days;
+      countdownElement.hours.textContent = hours;
+      countdownElement.minutes.textContent = minutes;
+      countdownElement.seconds.textContent = seconds;
     }
 
     updateCountdown();
     setInterval(updateCountdown, 1000);
   </script>
+
 </body>
 </html>
